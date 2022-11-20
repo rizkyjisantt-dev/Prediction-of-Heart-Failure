@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>K-Means Clustering &#8212; M.R Aji Santoso</title>
+    <title>Decision Tree &#8212; M.R Aji Santoso</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Implementasi Naive Bayes" href="Tugas5.html" />
-    <link rel="prev" title="K-NN iris Dataset" href="Tugas3.html" />
+    <link rel="prev" title="UTS (klasifikasi implementasi knn dan decision tree)" href="UTS.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -151,8 +150,8 @@ const thebe_selector_output = ".output, .cell_output"
    K-NN iris Dataset
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tugas4.html">
    K-Means Clustering
   </a>
  </li>
@@ -166,8 +165,8 @@ const thebe_selector_output = ".output, .cell_output"
    UTS (klasifikasi implementasi knn dan decision tree)
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Tugas6.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Decision Tree
   </a>
  </li>
@@ -230,7 +229,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/rizkyluxszerr/datamining/gh-pages?urlpath=tree/_sources/tugas_pendat/Tugas4.ipynb"
+        <a href="https://mybinder.org/v2/gh/rizkyluxszerr/datamining/gh-pages?urlpath=tree/_sources/tugas_pendat/Tugas6.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -248,7 +247,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/rizkyluxszerr/datamining/blob/gh-pages/_sources/tugas_pendat/Tugas4.ipynb"
+        <a href="https://colab.research.google.com/github/rizkyluxszerr/datamining/blob/gh-pages/_sources/tugas_pendat/Tugas6.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -308,7 +307,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/rizkyluxszerr/datamining/issues/new?title=Issue%20on%20page%20%2Ftugas_pendat/Tugas4.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/rizkyluxszerr/datamining/issues/new?title=Issue%20on%20page%20%2Ftugas_pendat/Tugas6.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -336,7 +335,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/tugas_pendat/Tugas4.ipynb"
+        <a href="../_sources/tugas_pendat/Tugas6.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -373,23 +372,60 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#konsep-decision-tree">
+   Konsep Decision Tree
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>K-Means Clustering</h1>
+                <h1>Decision Tree</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#konsep-decision-tree">
+   Konsep Decision Tree
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -397,34 +433,43 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="k-means-clustering">
-<h1>K-Means Clustering<a class="headerlink" href="#k-means-clustering" title="Permalink to this headline">#</a></h1>
-<p>K-Means pada Iris Dataset</p>
-<p>##Input Data</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="decision-tree">
+<h1>Decision Tree<a class="headerlink" href="#decision-tree" title="Permalink to this headline">#</a></h1>
+<p>Decision tree merupakan suatu struktur yang digunakan untuk membantu proses pengambilan keputusan. Disebut sebagai “tree” karena struktur ini menyerupai sebuah pohon lengkap dengan akar, batang, dan percabangannya. Dalam data science, struktur decision tree dapat membantu ambil keputusan efektif dan tetap memperhatikan kemungkinan hasil serta konsekuensinya</p>
+<section id="konsep-decision-tree">
+<h2>Konsep Decision Tree<a class="headerlink" href="#konsep-decision-tree" title="Permalink to this headline">#</a></h2>
+<p>Decision tree merupakan sebuah algoritma yang dapat digunakan untuk klasifikasi dan regresi. Kelebihan menggunaka Decision Tree</p>
+<ol class="simple">
+<li><p>Sederhana untuk dipahami dan diimplementasikan</p></li>
+<li><p>Membutuhkan sedikit persiapan data</p></li>
+</ol>
+<p>Kekurangan menggunakan Decision Tree :</p>
+<ol class="simple">
+<li><p>Prediksi Decision tree tidak atau kontinu.</p></li>
+<li><p>Decision Tree dapat menjadi tidak stabil karena variasi kecil dalam data.</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data&quot;</span>
-<span class="c1">#the imported dataset does not have the required column names so lets add it</span>
-<span class="n">colnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sepal-length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal-width&#39;</span><span class="p">,</span> <span class="s1">&#39;petal-length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal-width&#39;</span><span class="p">,</span> <span class="s1">&#39;Class&#39;</span><span class="p">]</span>
-<span class="n">irisdata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">colnames</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>##Menggambarkan Data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">irisdata</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reading the Iris.csv file</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/rizkyluxszerr/datamining/main/iris_csv.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-ea3d0425-5eeb-45d2-ba66-0403ad8436a1">
+  <div id="df-f7dea88a-1d0b-4a8a-91c6-c1a266536173">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -444,11 +489,11 @@ title="Print to PDF"
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>sepal-length</th>
-      <th>sepal-width</th>
-      <th>petal-length</th>
-      <th>petal-width</th>
-      <th>Class</th>
+      <th>sepallength</th>
+      <th>sepalwidth</th>
+      <th>petallength</th>
+      <th>petalwidth</th>
+      <th>class</th>
     </tr>
   </thead>
   <tbody>
@@ -495,7 +540,7 @@ title="Print to PDF"
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-ea3d0425-5eeb-45d2-ba66-0403ad8436a1')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-f7dea88a-1d0b-4a8a-91c6-c1a266536173')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -546,12 +591,12 @@ title="Print to PDF"
 
       <script>
         const buttonEl =
-          document.querySelector('#df-ea3d0425-5eeb-45d2-ba66-0403ad8436a1 button.colab-df-convert');
+          document.querySelector('#df-f7dea88a-1d0b-4a8a-91c6-c1a266536173 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-ea3d0425-5eeb-45d2-ba66-0403ad8436a1');
+          const element = document.querySelector('#df-f7dea88a-1d0b-4a8a-91c6-c1a266536173');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -572,67 +617,28 @@ title="Print to PDF"
   </div>
 </div></div>
 </div>
-<p>##Mengubah nama kelas menjadi kategori numerik untuk analisis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">irisdata</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">irisdata</span><span class="p">[</span><span class="s2">&quot;Class&quot;</span><span class="p">])</span>
-<span class="n">irisdata</span><span class="p">[</span><span class="s2">&quot;Class&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">irisdata</span><span class="p">[</span><span class="s2">&quot;Class&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">])</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s2">&quot;gini&quot;</span><span class="p">)</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>##Mempersiapkan kumpulan data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">irisdata</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">irisdata</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>##Menjalankan K-Means di atasnya:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
-
-<span class="c1"># Number of clusters</span>
-<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="c1"># Fitting the input data</span>
-<span class="n">kmeans</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="c1"># Getting the cluster labels</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="c1"># Centroid values</span>
-<span class="n">centroids</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>##Memeriksa akurasi pengelompokan program:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
-
-<span class="n">target_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Iris-setosa&#39;</span><span class="p">,</span> <span class="s1">&#39;Iris-versicolor&#39;</span><span class="p">,</span> <span class="s1">&#39;Iris-virginica&#39;</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">irisdata</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">],</span><span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span><span class="n">target_names</span><span class="o">=</span><span class="n">target_names</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">plot_tree</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)[:</span><span class="mi">4</span><span class="p">],</span> <span class="n">class_names</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)[</span><span class="mi">4</span><span class="p">]</span> <span class="p">,</span><span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                 precision    recall  f1-score   support
-
-    Iris-setosa       0.00      0.00      0.00        50
-Iris-versicolor       0.00      0.00      0.00        50
- Iris-virginica       0.23      0.28      0.25        50
-
-       accuracy                           0.09       150
-      macro avg       0.08      0.09      0.08       150
-   weighted avg       0.08      0.09      0.08       150
-</pre></div>
+<img alt="../_images/Tugas6_5_0.png" src="../_images/Tugas6_5_0.png" />
 </div>
 </div>
-</div>
-<p>Anda dapat melihat dalam laporan klasifikasi bahwa, 91% dari data diprediksi secara akurat. Itu cukup bagus untuk algoritma tanpa pengawasan.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -662,19 +668,12 @@ Iris-versicolor       0.00      0.00      0.00        50
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Tugas3.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="UTS.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">K-NN iris Dataset</p>
+            <p class="prev-next-title">UTS (klasifikasi implementasi knn dan decision tree)</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="Tugas5.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Implementasi Naive Bayes</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
